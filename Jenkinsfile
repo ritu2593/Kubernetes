@@ -5,7 +5,7 @@ node {
     	stage('checkout'){
         
         mvnHome = tool 'M3'
-        git url: 'https://github.com/<user>/workplace.git'
+        git url: 'https://github.com/ritu2593/Kubernetes.git'
     
         sh "git rev-parse HEAD > .git/commit-id"
         def commit_id = readFile('.git/commit-id').trim()
