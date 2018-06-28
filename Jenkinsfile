@@ -1,5 +1,5 @@
 node {
-    docker.withRegistry('https://hub.docker.com/','ritu25','docker@123','org.jenkinsci.plugins.workflow.cps.CpsClosure2@3939ff9a') {
+    docker.withRegistry('https://hub.docker.com/',ritu25,docker@123) {
     	def mvnHome
     	
     	stage('checkout'){
