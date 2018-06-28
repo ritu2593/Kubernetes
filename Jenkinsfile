@@ -1,10 +1,10 @@
 node {
-    docker.withRegistry('https://hub.docker.com/') {
+    docker.withRegistry('https://hub.docker.com/','ritu25) {
     	def mvnHome
     	
     	stage('checkout'){
         
-        mvnHome = tool 'M3'
+       
         git url: 'https://github.com/ritu2593/Kubernetes.git'
     
         sh "git rev-parse HEAD > .git/commit-id"
@@ -14,7 +14,7 @@ node {
     
     dir('${artifactId}'){
         stage('build'){
-	        sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean install"
+	        sh "mvn -Dmaven.test.failure.ignore clean install"
 	        sh 'docker login --username <userName> --password <password>'
 	        sh ("docker build -t ${artifactId} .")
 	        sh ("docker tag  ${artifactId} prakashg84/test:${artifactId}")
