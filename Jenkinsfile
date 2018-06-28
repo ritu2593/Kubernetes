@@ -17,7 +17,7 @@ node {
 	        sh "mvn -Dmaven.test.failure.ignore clean install"
 	        sh 'docker login --username <userName> --password <password>'
 	        sh ("docker build -t ${artifactId} .")
-	        sh ("docker tag  ${artifactId} prakashg84/test:${artifactId}")
+	        sh ("docker tag  ${artifactId} ritu25/test:${artifactId}")
 	        sh ("docker push <repo>/test:${artifactId}")
     	}
     	
@@ -28,7 +28,7 @@ node {
     	}
     	
     	stage('push docker image'){
-			sh ("docker push prakashg84/test:${artifactId}")
+			sh ("docker push ritu25/test:${artifactId}")
     	}
     	
     	stage('create deployment'){
